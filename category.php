@@ -44,6 +44,7 @@ $result=mysqli_query($con,$sql);
                         <tr>
                           <th>Category ID</th>
                           <th>Category Name</th>
+                          <th>Action</th>
                           
                         </tr>
                       </thead>
@@ -55,7 +56,8 @@ $result=mysqli_query($con,$sql);
                          <tr>
                           <th scope="row"><?php echo $row['category_id'];?></th>
                           <td><?php echo $row['category_name'];?></td>
-                          
+                          <td><a href="edit_category.php?id=<?php echo $row['category_id'];?>">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="?deleteid=<?php echo $row['category_id'];?>">Delete</a></td>
+
                         </tr>
                         <?php
                         }
@@ -67,9 +69,21 @@ $result=mysqli_query($con,$sql);
               </div>
             </div>
 <?php
+$con=mysqli_connect('localhost','root','','project');
+if(isset($_GET['deleteid']))
+{
+  $d_id=$_GET['deleteid'];
+  $sql_query="delete from category where category_id=$d_id";
+  mysqli_query($con,$sql_query);
+  echo "<script>alert('Category deleted');window.location='category.php'</script>";
+
+}
+if(isset($_GET['editid']))
+{
+ 
+}
 if(isset($_POST['submit']))
 {
-$con=mysqli_connect('localhost','root','','project');
 $cat=$_POST['category'];
 $sql="INSERT INTO category (`category_id`,`category_name`) VALUES (0,'$cat')";
 $result=mysqli_query($con,$sql);

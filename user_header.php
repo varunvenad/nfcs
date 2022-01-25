@@ -41,15 +41,15 @@
         <li class="sidebar-item"><a class="sidebar-link" href="sample.php"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#real-estate-1"> </use>
-            </svg>Home </a></li>
+            </svg>View Profile </a></li>
         <li class="sidebar-item"><a class="sidebar-link" href="category.php"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#survey-1"> </use>
-            </svg>Add Category </a></li>
+        </svg>View Items/Book </a></li>
         <li class="sidebar-item"><a class="sidebar-link" href="add_food_item.php"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#survey-1"> </use>
-            </svg>Add Item </a></li>
+              <use xlink:href="#survey-1""> </use>
+            </svg>View/Take packages </a></li>
         <!--<li class="sidebar-item"><a class="sidebar-link" href="add_packages.php"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#survey-1"> </use>
@@ -61,7 +61,7 @@
         <li class="sidebar-item"><a class="sidebar-link" href="#exampledropdownDropdown" data-bs-toggle="collapse"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#browser-window-1"> </use>
-            </svg>Add packages </a>
+            </svg>View/Use Offers </a>
           <ul class="collapse list-unstyled " id="exampledropdownDropdown">
             <li><a class="sidebar-link" href="add_packages.php">Add packages</a></li>
             <li><a class="sidebar-link" href="#">View and Manage</a></li>
@@ -71,12 +71,12 @@
         <li class="sidebar-item"><a class="sidebar-link" href="add_offers.php"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#disable-1"> </use>
-            </svg>Add Offers </a></li>
+            </svg>Food Basket </a></li>
         <li class="sidebar-item"><a class="sidebar-link" href="#!"> 
             <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
               <use xlink:href="#imac-screen-1"> </use>
-            </svg>Add offline bookings
-            <!--<div class="badge bg-warning">6 New</div>--></a></li>
+            </svg>Demo
+            <div class="badge bg-warning">6 New</div></a></li>
       </ul><span class="text-uppercase text-gray-500 text-sm fw-bold letter-spacing-0 mx-lg-2 heading">Second menu</span>
       <ul class="list-unstyled py-4">
         <li class="sidebar-item"> <a class="sidebar-link" href="#!"> 
@@ -107,8 +107,8 @@
               <div class="d-flex align-items-center"><a class="menu-btn d-flex align-items-center justify-content-center p-2 bg-gray-900" id="toggle-btn" href="#">
                   <svg class="svg-icon svg-icon-sm svg-icon-heavy text-white">
                     <use xlink:href="#menu-1"> </use>
-                  </svg></a><a class="navbar-brand ms-2" href="#">
-                  <div class="brand-text d-none d-md-inline-block text-uppercase letter-spacing-0"><span class="text-white fw-normal text-xs">Admin</span><strong class="text-primary text-sm"> Dashboard</strong></div></a></div>
+                  </svg></a><a class="navbar-brand ms-2" href="index.html">
+                  <div class="brand-text d-none d-md-inline-block text-uppercase letter-spacing-0"><span class="text-white fw-normal text-xs">USER</span><strong class="text-primary text-sm"> Dashboard</strong></div></a></div>
               <ul class="nav-menu mb-0 list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Notifications dropdown
                 <li class="nav-item dropdown"> <a class="nav-link text-white position-relative" id="notifications" rel="nofollow" data-bs-target="#" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
