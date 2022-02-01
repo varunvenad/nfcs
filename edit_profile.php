@@ -20,7 +20,7 @@ $row=mysqli_fetch_assoc($result);
                                                 <label>User Id</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input name="tname" value="<?php echo $row['u_id'];?>">
+                                                <input name="tname" value="<?php echo $row['u_id'];?>" required>
                                             </div>
                                         </div>
                                         <div class="row" style="padding:10px">
@@ -28,7 +28,7 @@ $row=mysqli_fetch_assoc($result);
                                                 <label>Full Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input name="fname" value="<?php echo $row['full_name'];?>">
+                                                <input name="fname" value="<?php echo $row['full_name'];?>" required>
                                             </div>
                                         </div>
                                         <div class="row" style="padding:10px">
@@ -36,7 +36,7 @@ $row=mysqli_fetch_assoc($result);
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input name="email" value="<?php echo $row['email_id'];?>">
+                                                <input name="email" value="<?php echo $row['email_id'];?>" required>
                                             </div>
                                         </div>
                                         <div class="row" style="padding:10px">
@@ -44,7 +44,7 @@ $row=mysqli_fetch_assoc($result);
                                                 <label>Address</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input name="address" value="<?php echo $row['address'];?>">
+                                                <input name="address" value="<?php echo $row['address'];?>" required>
                                             </div>
                                         </div>
                                         <div class="row" style="padding:10px">
@@ -52,7 +52,7 @@ $row=mysqli_fetch_assoc($result);
                                                 <label>Phone no.</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input name="phno" value="<?php echo $row['phone_no'];?>">
+                                                <input name="phno" value="<?php echo $row['phone_no'];?>" required>
                                             </div>
 
                                             <div class="col-md-2" style="padding:60px;margin-left:540px;">

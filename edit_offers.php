@@ -62,7 +62,7 @@ $offprice=$_POST['off_price'];
 $offqty=$_POST['off_qty'];
 $frm=$_POST['valid_frm'];
 $to=$_POST['valid_to'];
-$sql="UPDATE add_offers set offer_item_name='$offood', offer_desc='$offdesc', offr_price='$offprice', minimum_quantity='$offqty', valid_from='$frm', valid_to='$to' where offer_id=$get";
+$sql="UPDATE add_offers set offer_item_name='$offood', offer_desc='$offdesc', offr_price='$offprice', min_quantity='$offqty', valid_from='$frm', valid_to='$to' where offer_id=$get";
 $result=mysqli_query($con,$sql);
 if($result)
 {

@@ -44,6 +44,7 @@ $result=mysqli_query($con,$sql);
                         while($row=mysqli_fetch_assoc($result))
                         {
                             $tmp=EXPLODE(',',$row['food_list']);
+                            $fname="";
                             $foodItemsID=array_slice($tmp,1,count($tmp)-1);
                             foreach($foodItemsID as $i)
                                 {  
@@ -146,9 +147,14 @@ $filename = $_FILES["pkgimg"]["name"];
 $tempname = $_FILES["pkgimg"]["tmp_name"];  
 $folder = "images/".$filename;
 $pkgdesc=$_POST['pkgdesc'];
-$pkgfoods=$_POST['pkgitems'];
+$pkgitems="";
+foreach($_POST['pkgitems'] as $i)
+{
+  $pkgitems=$pkgitems.",".$i;
+  //echo $pkgitems;
+}
 $pkgprice=$_POST['pkgprice'];
-$sql="UPDATE add_packages set  pkg_img='$filename', pkg_desc='$pkgdesc', food_list='$pkgfoods', pkg_price=$pkgprice where package_id=$get";
+$sql="UPDATE add_packages set  pkg_img='$filename', pkg_desc='$pkgdesc', food_list='$pkgitems', pkg_price=$pkgprice where package_id=$_GET[edtid]";
 move_uploaded_file($tempname,$folder);
 $result=mysqli_query($con,$sql);
 if($result)
