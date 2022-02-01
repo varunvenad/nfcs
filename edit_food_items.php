@@ -89,11 +89,6 @@ echo "<script>alert('item Updated');window.location='add_food_item.php'</script>
 
 
 
-
-
-
-
-
 <?php
 include 'footer.php';
 ?>

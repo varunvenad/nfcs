@@ -20,18 +20,23 @@
      {
       session_start();
       $_SESSION['login_id']=$row['login_id'];
-    
+       
        if($row['usertype']=='admin')
        {
         echo "<script>window.location='admin_dashboard.php';</script>";
         exit;
+        
        }
+        
        else if($row['usertype']=='user')
        {
-        echo "<script>window.location='user_dashboard.php';</script>";
+        echo "<script>window.location='usrdash.php';</script>";
         exit;
+        
        }
-      
+       // echo $_SESSION['login_id'];
+        //echo $row['login_id'];
+       
      }
      mysqli_close($con);
     }

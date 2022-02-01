@@ -3,6 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--from homepage-->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
     <title>NFCS</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,6 +28,25 @@
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+   <!--homepage links--
+   <meta charset="UTF-8">
+        <title>Restaurant</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css" media="screen" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style-portfolio.css">
+        <link rel="stylesheet" href="css/picto-foundry-food.css" />
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link rel="icon" href="favicon-1.ico" type="image/x-icon">-->
+
+
+        
+
   </head>
   <body>
     <!-- Side Navbar -->
@@ -38,7 +63,7 @@
       </div>
       <!-- Sidebar Navigation Menus--><span class="text-uppercase text-gray-500 text-sm fw-bold letter-spacing-0 mx-lg-2 heading">Main</span>
       <ul class="list-unstyled">                  
-        <li class="sidebar-item"><a class="sidebar-link" href="sample.php"> 
+        <li class="sidebar-item"><a class="sidebar-link" href="admin_dashboard.php"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#real-estate-1"> </use>
             </svg>Home </a></li>
@@ -64,7 +89,7 @@
             </svg>Add packages </a>
           <ul class="collapse list-unstyled " id="exampledropdownDropdown">
             <li><a class="sidebar-link" href="add_packages.php">Add packages</a></li>
-            <li><a class="sidebar-link" href="#">View and Manage</a></li>
+            <li><a class="sidebar-link" href="edit_packages.php">View and Manage</a></li>
             <!--<li><a class="sidebar-link" href="#">Page</a></li>-->
           </ul>
         </li>

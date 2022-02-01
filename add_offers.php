@@ -25,7 +25,7 @@ include 'header.php';
                       <input class="form-control" id="exampleInputPassword1" name="off_price" type="number" required>
                     </div>
                     <div class="mb-3">
-                      <label class="form-label" for="exampleInputPassword2">Min Quantity</label>
+                      <label class="form-label" for="exampleInputPassword2">Min Quantity(in kg/litres)</label>
                       <input class="form-control" id="exampleInputPassword2" name="off_qty" type="number" required>
                     </div>
                     <div class="mb-3">
@@ -47,6 +47,7 @@ $con=mysqli_connect('localhost','root','','project');
 $sql="SELECT * FROM add_offers";
 $result=mysqli_query($con,$sql);
 ?>
+
 <div class="col-lg-6">
               <div class="card" style= "max-width:900px;margin:auto;top:50%;left:40%;margin-top:50px;margin-left:50px" >
                 <div class="card-header border-bottom">
@@ -61,9 +62,11 @@ $result=mysqli_query($con,$sql);
                           <th>Offer Item Name</th>
                           <th>Offer Description</th>
                           <th>Offer Price</th>
-                          <th>Minimum Quantity</th>
+                          <th>Minimum Quantity(in kg/litres)</th>
                           <th>Valid From</th>
-                          <th>Valid TO</th>
+                          <th>Valid To</th>
+                          <th>Action</th>
+                          
                         </tr>
                       </thead>
                       <tbody>
@@ -79,6 +82,7 @@ $result=mysqli_query($con,$sql);
                           <td><?php echo $row['min_quantity'];?></td>
                           <td><?php echo $row['valid_from'];?></td>
                           <td><?php echo $row['valid_to'];?></td>
+                          <td><a href="edit_offers.php?id=<?php echo $row['offer_id'];?>">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="?deleteid=<?php echo $row['offer_id'];?>">Delete</a></td>
                           
                         </tr>
                         <?php
@@ -90,6 +94,18 @@ $result=mysqli_query($con,$sql);
                 </div>
               </div>
             </div>
+
+<?php
+$con=mysqli_connect('localhost','root','','project');
+if(isset($_GET['deleteid']))
+{
+  $d_id=$_GET['deleteid'];
+  $sql_query="delete from add_offers where offer_id=$d_id";
+  mysqli_query($con,$sql_query);
+  echo "<script>alert('offer deleted');window.location='add_offers.php'</script>";
+
+}
+?>
 
 <?php
 if(isset($_POST['offersubmit']))

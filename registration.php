@@ -37,7 +37,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">PHONE NO.</label>
-                                <input type="tel" name="phno" class="form-control" required>
+                                <input type="number" name="phno" class="form-control" pattern="[1-9][0-9]{10}" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">ADDRESS</label>
@@ -78,6 +78,18 @@ if($pass!=$cpass) {
 
     echo "<script>alert('no match')</script>";
 } 
+if (strlen($_POST["password"]) <= '8') {
+    echo "<script>alert('Your Password Must Contain At Least 8 Characters!')</script>";
+}
+elseif(!preg_match("#[0-9]+#",$pass)) {
+    echo "<script>alert('Your Password Must Contain At Least 1 Number!')</script>";
+}
+elseif(!preg_match("#[A-Z]+#",$pass)) {
+    echo "<script>alert('Your Password Must Contain At Least 1 Capital Letter!')</script>";
+}
+elseif(!preg_match("#[a-z]+#",$pass)) {
+    echo "<script>alert('Your Password Must Contain At Least 1 Lowercase Letter!')</script>";
+}
 else{
 
 $con=mysqli_connect('localhost','root','','project');

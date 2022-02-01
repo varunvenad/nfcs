@@ -33,7 +33,7 @@
           <h2 class="h5 text-white text-uppercase mb-0">NFCS</h2>
           <p class="text-sm mb-0 text-muted">Mezhathur</p>
         </div>
-        <!-- Small Brand information, appears on minimized sidebar--> <a class="brand-small text-center" href="index.html">
+        <!-- Small Brand information, appears on minimized sidebar--> <a class="brand-small text-center" href="user_dashboard.php">
           <p class="h1 m-0">BD</p></a>
       </div>
       <!-- Sidebar Navigation Menus--><span class="text-uppercase text-gray-500 text-sm fw-bold letter-spacing-0 mx-lg-2 heading">Main</span>
@@ -107,7 +107,7 @@
               <div class="d-flex align-items-center"><a class="menu-btn d-flex align-items-center justify-content-center p-2 bg-gray-900" id="toggle-btn" href="#">
                   <svg class="svg-icon svg-icon-sm svg-icon-heavy text-white">
                     <use xlink:href="#menu-1"> </use>
-                  </svg></a><a class="navbar-brand ms-2" href="index.html">
+                  </svg></a><a class="navbar-brand ms-2" href="user_dashboard.php">
                   <div class="brand-text d-none d-md-inline-block text-uppercase letter-spacing-0"><span class="text-white fw-normal text-xs">USER</span><strong class="text-primary text-sm"> Dashboard</strong></div></a></div>
               <ul class="nav-menu mb-0 list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Notifications dropdown

@@ -25,22 +25,22 @@ $result=mysqli_query($con,$sql);
                       <input class="form-control" id="exampleInputEmail1"  name="pkgdesc" type="text" required>
                       <div class="mb-3">
                       <label class="form-label" for="exampleInputEmail2">Food Items</label>
-                      <select class="form-control" id="exampleInputEmail2" name="pkgitems" type="text" multiple="multiple" required>
-                      <option selected disabled>Choose items</option>
+                      
                       <?php
                         while($row=mysqli_fetch_assoc($result))
                         {
                       ?>
-                        <option value="<?php echo $row['food_item_id'];?>"><?php echo $row['food_name'];?></option>
+                      <br>
+                        <input type="checkbox" name="pkgitems[]" value="<?php echo $row['food_item_id'];?>"><?php echo $row['food_name'];?><br></option>
                         <?php
                         }
                         ?>
-                      </select>
+                     
                     </div>
                     </div>
                     <div class="mb-3">
                       <label class="form-label" for="exampleInputPassword1">Package price/head</label>
-                      <input class="form-control" id="exampleInputPassword1" name="pkgprice" type="number" required>
+                      <input value="<?php echo $value['pkg_price']?>" class="form-control" id="exampleInputPassword1" name="pkgprice" type="number" required>
                     </div>
                     <input class="btn btn-primary"  name="addpkgsubmit" type="submit">
                   </form>
@@ -50,20 +50,24 @@ $result=mysqli_query($con,$sql);
             <?php
 if(isset($_POST['addpkgsubmit']))
 {
-  echo $_POST['pkgitems'];
 $con=mysqli_connect('localhost','root','','project');
 $filename = $_FILES["pkgimg"]["name"]; 
 $tempname = $_FILES["pkgimg"]["tmp_name"];  
 $folder = "images/".$filename;
 $pkgdesc=$_POST['pkgdesc'];
-$pkgitm=$_POST['pkgitems'];
+$pkgitems="";
+foreach($_POST['pkgitems'] as $i)
+{
+  $pkgitems=$pkgitems.",".$i;
+}
 $pkgprice=$_POST['pkgprice'];
-$sql="INSERT INTO add_packages VALUES (0,$filename,'$pkgdesc','$pkgitm',$pkgprice)";
+$sql="INSERT INTO add_packages VALUES (0,'$filename','$pkgdesc','$pkgitems',$pkgprice)";
+echo $sql;
 move_uploaded_file($tempname,$folder);
 $result=mysqli_query($con,$sql);
 if($result)
 {
-//echo "<script>window.alert('Package item Added');window.location='add_food_item.php'</script>";
+echo "<script>window.alert('Package item Added');window.location='add_packages.php'</script>";
 }
 }
 ?>

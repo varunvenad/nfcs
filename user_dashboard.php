@@ -1,5 +1,5 @@
 <?php
-include 'user_header.php'
+include 'user_header.php';
 ?>
 
 <?php
