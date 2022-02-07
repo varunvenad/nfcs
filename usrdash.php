@@ -84,10 +84,10 @@
               <!--</li>
               <li><a href="#">Drop Down 2</a></li>
               <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#">Drop Down 4</a></li>-->
             </ul>
-          </li>-->
-
+          </li>
+          <li><a class="nav-link scrollto" href="log.php">Logout</a></li>
           <!--<li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>-->
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -107,7 +107,7 @@
 
           <div class="btns">
             <!--<a href="#menu" class="btn-menu animated fadeInUp scrollto">Our Menu</a>-->
-            <a href="#book-a-table" class="btn-book animated fadeInUp scrollto">New booking</a>
+            <!--<a href="#book-a-table" class="btn-book animated fadeInUp scrollto">New booking</a>-->
           </div>
         </div>
         <div class="col-lg-4 d-flex align-items-center justify-content-center position-relative" data-aos="zoom-in" data-aos-delay="200">

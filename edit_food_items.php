@@ -12,6 +12,11 @@ $value=mysqli_fetch_assoc($result);
 //echo $value['category_id'];
 }
 ?>
+<?php
+$con=mysqli_connect('localhost','root','','project');
+$sql="SELECT * FROM category";
+$result=mysqli_query($con,$sql);
+?>
 
 <div class="col-lg-6">
               <div class="card" style="max-width:500px;top:50%;left:50%;margin-top:50px;margin-left:50px">

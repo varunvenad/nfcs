@@ -49,7 +49,7 @@ $result=mysqli_query($con,$sql);
 ?>
 
 <div class="col-lg-6">
-              <div class="card" style= "max-width:900px;margin:auto;top:50%;left:40%;margin-top:50px;margin-left:50px" >
+              <div class="card" style= "width:900px;top:50%;left:20%;margin-top:50px;margin-left:30px" >
                 <div class="card-header border-bottom">
                   <h3 class="h4 mb-0">Offer Details</h3>
                 </div>

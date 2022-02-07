@@ -62,9 +62,9 @@
           <h1>Welcome to <span>NFCS</span></h1>
           <h2>Serving with passion and love!</h2>
 
-          <div class="btns">
+          <!--<div class="btns">
             <a href="registration.php" class="btn-menu animated fadeInUp scrollto">Register</a>
-            <a href="log.php" class="btn-book animated fadeInUp scrollto">Login</a>
+            <a href="log.php" class="btn-book animated fadeInUp scrollto">Login</a>-->
 
         </div>
         <!--<div class="col-lg-4 d-flex align-items-center justify-content-center position-relative" data-aos="zoom-in" data-aos-delay="200">-->

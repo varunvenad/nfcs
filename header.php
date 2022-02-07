@@ -59,7 +59,7 @@
           <p class="text-sm mb-0 text-muted">Mezhathur</p>
         </div>
         <!-- Small Brand information, appears on minimized sidebar--> <a class="brand-small text-center" href="index.html">
-          <p class="h1 m-0">BD</p></a>
+          <p class="h1 m-0">NFCS</p></a>
       </div>
       <!-- Sidebar Navigation Menus--><span class="text-uppercase text-gray-500 text-sm fw-bold letter-spacing-0 mx-lg-2 heading">Main</span>
       <ul class="list-unstyled">                  
@@ -97,7 +97,7 @@
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#disable-1"> </use>
             </svg>Add Offers </a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="#!"> 
+        <li class="sidebar-item"><a class="sidebar-link" href="add_user.php"> 
             <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
               <use xlink:href="#imac-screen-1"> </use>
             </svg>Add offline bookings
