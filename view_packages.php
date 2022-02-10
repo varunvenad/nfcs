@@ -20,12 +20,12 @@ $colnum=3;
     $trws=$trws+1;
   }
   
-  echo "$trws";
+  //echo "$trws";
 ?>
 
 
 <!-- BLOCK -->
-<div class="m_contact"><span class="left_line1"> </span>Food Items<span class="right_line1"> </span></div>
+<div class="m_contact"><span class="left_line1"> </span><span class="right_line1"> </span></div>
 
 
 
@@ -64,7 +64,7 @@ $colnum=3;
           
              
             <td style="font-weight:bold ;">
-            <img src="images/<?php echo $row['pkg_img'] ?>" style="width:250px;height:300px;" />
+            <img src="images/<?php echo $row['pkg_img'] ?>" style="width:250px;height:250px;" />
             
            
         
@@ -72,7 +72,7 @@ $colnum=3;
             
       
             <br>
-            <hr style="height:5px;border: width 5px;;color:gray;background-color:red;margin:auto;width=50%";>
+           <!-- <hr style="height:5px;border: width 5px;;color:gray;background-color:red;margin:auto;width=50%";>-->
              <br>
 
             <?php echo " <b> Package Description :</b> "; ?> 
@@ -84,7 +84,7 @@ $colnum=3;
             <?php echo "<b> Price :</b>"; ?> 
             <?php echo $row['pkg_price'] ?>
             <br>
-            <button name="addtocart" id="" >Add to Cart</button>
+            <a href="pkg_book.php?id=<?php echo $row['package_id']?>" >Book</a>
             <br>
             <br>
             <br>
@@ -109,3 +109,8 @@ $colnum=3;
     <?php
       }
     ?>
+
+  <?php
+ 
+  ?>
+

@@ -2,10 +2,9 @@
 include 'usrheader.php'
 ?>
 
-
 <?php
 $con=mysqli_connect('localhost','root','','project');
-$sql="SELECT * FROM add_food_item";
+$sql="SELECT * FROM add_offers";
 $result=mysqli_query($con,$sql);
 //$value=mysqli_fetch_assoc($result)
 $colnum=3;
@@ -65,7 +64,7 @@ $colnum=3;
           
              
             <td style="font-weight:bold ;">
-            <img src="images/<?php echo $row['food_img'] ?>" style="width:250px;height:250px;" />
+            
             
            
         
@@ -73,19 +72,29 @@ $colnum=3;
             
       
             <br>
-            <!--<hr style="height:5px;border: width 5px;;color:gray;background-color:red;width=50%;">-->
+           <!-- <hr style="height:5px;border: width 5px;;color:gray;background-color:red;margin:auto;width=50%";>-->
              <br>
 
-            <?php echo " <b> Food Name :</b> "; ?> 
-            <?php echo $row['food_name'] ?>
+            <?php echo " <b> Offer Item :</b> "; ?> 
+            <?php echo $row['offer_item_name'] ?>
             <br>
-            <?php echo "<b> Food Description :</b>"; ?> 
-            <?php echo $row['food_desc'] ?>
+            <?php echo "<b> Offer Description :</b>"; ?> 
+            <?php echo $row['offer_desc'] ?>
             <br>
             <?php echo "<b> Price :</b>"; ?> 
-            <?php echo $row['price'] ?>
+            <?php echo $row['offr_price'] ?>
             <br>
-            <a href="?id=<?php echo $row['food_item_id']?>" >Add to Cart</a>
+            <?php echo "<b> Min Quantity :</b>"; ?> 
+            <?php echo $row['min_quantity'] ?>
+            <br>
+            <?php echo "<b> Valid From :</b>"; ?> 
+            <?php echo $row['valid_from'] ?>
+            <br>
+            <?php echo "<b> Valid To :</b>"; ?> 
+            <?php echo $row['valid_to'] ?>
+            <br>
+            <br>
+            <a href="offer_book.php?id=<?php echo $row['offer_id']?>" >Book</a>
             <br>
             <br>
             <br>
@@ -110,23 +119,3 @@ $colnum=3;
     <?php
       }
     ?>
-    
-
-    <?php
-    //echo "hai";
-    if(isset($_GET['id']))
-    {
-    //echo $_POST['addtocart'];
-    $con=mysqli_connect('localhost','root','','project');
-    $uid=$_SESSION['login_id'];
-    $sql="INSERT into food_basket VALUES(0,$uid,$_GET[id])";
-    $result=mysqli_query($con,$sql);
-    //echo $sql;
-    //echo "helo";
-    if($result)
-    {
-      echo "<script>window.alert('Added to basket');window.location='view_items.php';</script>";
-    }
-    }
-    ?>
-

@@ -69,14 +69,14 @@
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="user_profile.php">View Profile</a></li>
-          <li><a class="nav-link scrollto" href="#specials">View item/Book</a></li>
+          <li><a class="nav-link scrollto" href="view_items.php">View item</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Food Basket</a></li>
           <li><a class="nav-link scrollto" href="#gallery">view booked details</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Give/View feedbacks</a></li>
           <li class="dropdown"><a href="#"><span>Packages and Offers</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">View/Take Packages</a></li>
-              <li><a href="#"><span>View/Take Offers</span></i></a>
+              <li><a href="view_packages.php">View/Take Packages</a></li>
+              <li><a href="view_offers.php"><span>View/Take Offers</span></i></a>
                 <!--<ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
                   <li><a href="#">Deep Drop Down 2</a></li>

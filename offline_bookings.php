@@ -1,14 +1,31 @@
 <?php
 include 'header.php';
 ?>
+
+
+<?php
+$con=mysqli_connect('localhost','root','','project');
+if(isset($_GET['cid']))
+{
+  $sql="SELECT * FROM add_food_item WHERE category_id=$_GET[cid]";
+  $exe=mysqli_query($con,$sql);
+}
+?>
+
 <?php
 //session_start();
 //$id=$_SESSION['user'];
 //echo $_SESSION['user'];
 $con=mysqli_connect('localhost','root','','project');
-$sql="SELECT food_item_id,food_name FROM add_food_item";
+$sql="SELECT food_item_id,food_name,category_id,food_name FROM add_food_item";
 $result=mysqli_query($con,$sql);
 ?>
+<?php
+$con=mysqli_connect('localhost','root','','project');
+$sql="SELECT * FROM category";
+$result=mysqli_query($con,$sql);
+?>
+
 
 <div class="col-lg-6">
               <div class="card" style="max-width:500px;margin:auto;top:50%;left:50%;margin-top:50px;margin-left:50px">
@@ -31,17 +48,39 @@ $result=mysqli_query($con,$sql);
                     <div class="mb-3">
                       <label class="form-label" for="exampleInputEmail1">Booking Date</label>
                       <input class="form-control" id="exampleInputEmail1"  name="bkdate" type="date" min="<?php echo date('Y-m-d');?>" required>
+                    </div>
+                    <div class="card-body">
+                  <p class="text-sm">Add food items into the category</p>
+                  <form action="" method="POST" enctype="multipart/form-data">
+                  <div class="col-lg" style="width:300px;margin:auto;padding:10px">
+                      <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+                      <select class="form-select" id="cat" onchange="typeSelected()" name="category_id" type="number">
+                        <option selected>Choose Category</option>
+                        <?php
+                        while($row=mysqli_fetch_assoc($result))
+                        {
+                      ?>
+                        <option value="<?php echo $row['category_id'];?>"><?php echo $row['category_name'];?></option>
+                        <?php
+                        }
+                        ?>
+                      </select>
+                    </div>
                       <div class="mb-3">
                       <label class="form-label" for="exampleInputEmail2">Food Items</label>
                       
                       <?php
-                        while($row=mysqli_fetch_assoc($result))
+                      if(isset($_GET['cid']))
+                      {
+
+                        while($row=mysqli_fetch_assoc($exe))
                         {
                       ?>
                       <br>
                         <input type="checkbox" name="pkgitems[]" value="<?php echo $row['food_item_id'];?>"><?php echo $row['food_name'];?><br></option>
                         <?php
                         }
+                      }
                         ?>
                      
                     </div>
@@ -71,14 +110,28 @@ if(isset($_POST['addoffline']))
     $bkddate=date('Y-m-d');
     $sql2="INSERT into booking_details values(0,$_GET[id],$id,'$bkadd','$bkgdate',$estgst,'$bkddate','normal','pending')";
     $result2=mysqli_query($con,$sql2);
-    echo $sql2; 
+    //echo $sql2; 
 }
-if($result)
+if($result2)
 {
   echo "<script>window.alert('Offline booking added to basket');</script>";
 }
 ?>
 
+<script>
+  function typeSelected()
+  {
+    var select=document.getElementById('cat').value;
+    var items=document.getElementById('').value;
+    if()
+    {
+
+    }
+    else{
+        
+    }
+  }
+</script>
 
 
 <?php
