@@ -12,7 +12,8 @@ echo "$sql";
 
 <?php
 $con=mysqli_connect('localhost','root','','project');
-$sql="SELECT * FROM add_packages";
+$sql="SELECT * FROM add_packages where package_id=$_GET[id]; ";
+$pkgp=0;
 $result=mysqli_query($con,$sql);
 ?>
 
@@ -31,7 +32,7 @@ $result=mysqli_query($con,$sql);
 
                     <div class="mb-3">
                       <label class="form-label" for="exampleInputPassword1" style="color:black;">Estimated Guests</label>
-                      <input class="form-control" id="exampleInputPassword1" name="est_guest" type="number" required>
+                      <input class="form-control" onfocusout="calc()" id="est" name="est_guest" type="number" required>
                     </div>
 
                     <div class="mb-3">
@@ -40,19 +41,43 @@ $result=mysqli_query($con,$sql);
                       <br>
                       <div class="mb-3">
                       <label class="form-label" for="exampleInputEmail2" style="color:black;">Food Items</label>
-                      
+                      <p style="color:black;">
                       <?php
-
-                       // $total="";
-                        //$est_gst=$_POST['est_guest'];
-                        $con=mysqli_connect('localhost','root','','project');
-                        $sql="SELECT * from add_packages";
-                        $res=mysqli_query($con,$sql);
-                        while($row=mysqli_fetch_assoc($res))
-                        ?>
+                       
+                        $fname="";
+                      
+                        while($row=mysqli_fetch_assoc($result))
                         {
-                        <p style="color:black;" ><?php echo $row['pkg_price'];?></p>
-                        }
+                         $pkgp=$row['pkg_price'];
+            
+                         $tmp=EXPLODE(',',$row['food_list']);
+                         $fname="";
+                         $foodItemsID=array_slice($tmp,1,count($tmp)-1);
+                        foreach($foodItemsID as $i)
+                        {  
+       
+                        $sql2="SELECT * FROM add_food_item where food_item_id=$i";
+    $results=mysqli_query($con,$sql2);
+    $tmpp=mysqli_fetch_assoc($results);
+    $fname=$fname."<br>".$tmpp['food_name'];
+   
+        }
+      }
+      echo $fname;
+        ?>
+        </p>
+
+        <br>
+        <br>
+        <h6 style="color:black;" id="total">
+      <script>
+        function calc()
+        {
+          var e=document.getElementById('total').innerHTML="Total="+document.getElementById('est').value*<?php echo $pkgp ?>;
+        }
+    </script>
+      
+      </h6>
                     </div>
                     </div>
                     <input class="btn btn-primary"  name="book" type="submit">
@@ -76,10 +101,10 @@ if(isset($_POST['book']))
     $sql2="INSERT into booking_details values(0,$uid,$_GET[id],'$bkadd','$bkgdate',$estgst,'$bkddate','package','pending')";
     $result=mysqli_query($con,$sql2);
     echo $sql2; 
-}
-if($result)
-{
-  echo "<script>window.alert('booking added to basket');</script>";
 
+    if($result)
+    {
+     echo "<script>window.alert('booking added to basket');</script>";
+    }
 }
 ?>

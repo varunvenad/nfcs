@@ -4,6 +4,7 @@ include 'usrheader.php'
 
 
 <?php
+session_start();
 $con=mysqli_connect('localhost','root','','project');
 $sql="SELECT * FROM add_food_item";
 $result=mysqli_query($con,$sql);
@@ -116,17 +117,27 @@ $colnum=3;
     //echo "hai";
     if(isset($_GET['id']))
     {
-    //echo $_POST['addtocart'];
+    $fdid=$_GET['id'];
+    $duplicate=mysqli_query($con,"select * from food_basket where food_item_id='$fdid'");
+    if(mysqli_num_rows($duplicate)>0)
+    {
+      echo "<script>window.alert('Already added to cart !')";
+    }
+    else{
+
     $con=mysqli_connect('localhost','root','','project');
     $uid=$_SESSION['login_id'];
-    $sql="INSERT into food_basket VALUES(0,$uid,$_GET[id])";
+    $sql="INSERT into food_basket VALUES(0,$uid,$_GET[id],'pending')";
     $result=mysqli_query($con,$sql);
+    $id=mysqli_insert_id($con);
+    $_SESSION['basketid']=$id;
     //echo $sql;
     //echo "helo";
+    }
     if($result)
     {
       echo "<script>window.alert('Added to basket');window.location='view_items.php';</script>";
     }
-    }
+  }
     ?>
 

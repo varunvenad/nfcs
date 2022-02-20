@@ -4,18 +4,17 @@ include 'usrheader.php'
 
 <?php
 $con=mysqli_connect('localhost','root','','project');
-$sql="SELECT * from food_basket WHERE u_id=$_SESSION[login_id]";
-$result=mysqli_query($con,$sql);
-$value=mysqli_fetch_assoc($result);
+$sql="SELECT * from food_basket WHERE u_id=$_SESSION[login_id]  and status='pending'";
+$result1=mysqli_query($con,$sql);
+$value=mysqli_fetch_assoc($result1);
 ?>
+
 <?php
 $con=mysqli_connect('localhost','root','','project');
-//$sql="SELECT add_packages.* FROM add_packages ";
-
-$sql="SELECT add_food_item.* FROM add_food_item inner join food_basket on food_basket.food_item_id=add_food_item.food_item_id where food_basket.u_id=$_SESSION[login_id]";
-$result=mysqli_query($con,$sql);
+$sql="SELECT add_food_item.*,food_basket.* FROM add_food_item inner join food_basket on food_basket.food_item_id=add_food_item.food_item_id where food_basket.u_id=$_SESSION[login_id] and food_basket.status='pending'";
+$result2=mysqli_query($con,$sql);
 ?>
-
+<form method="POST" action="">
 <div class="col-lg-6" style="margin-left:360px;margin-top:200px;">
               <div class="card">
                 <div class="card-header border-bottom">
@@ -35,21 +34,31 @@ $result=mysqli_query($con,$sql);
                       <?php
                         $fname="";
                         $c=1;
-                        while($row=mysqli_fetch_assoc($result))
+                        $sum=0;
+                        while($row=mysqli_fetch_assoc($result2))
                         {
-                            
+                            $sum=$row['price']+$sum;
+
                               ?>
                               <tr>
                           <th scope="row"><?php echo $c;$c=$c+1?></th>
                           <td><?php echo $row['food_name'];;
                            ?></td>
                           <td><?php echo $row['price'];?></td>
-                          <td><a href="?deleteid=<?php echo $row['package_id'];?>">Delete</a></td>
+                          <td><a href="?did=<?php echo $row['basket_id'];?>">Remove</a></td>
                           
                         </tr>
                         <?php
                         }
+                        $_SESSION['sum']=$sum;
                         ?>
+                        <tr>
+                          <td></td>
+                          <td>Total=</td>
+                          <td><?php echo $sum;?></td>
+                          <td></td>
+                  
+                      </tr>
                       </tbody>
                     </table>
                   </div>
@@ -62,3 +71,20 @@ $result=mysqli_query($con,$sql);
               </div>
             </div>
           </div>
+                      </form>
+
+<?php
+$con=mysqli_connect('localhost','root','','project');
+if(isset($_GET['did']))
+{
+  $d_id=$_GET['did'];
+  $sql_query="delete from food_basket where basket_id=$d_id";
+  mysqli_query($con,$sql_query);
+  echo "<script>alert('Item deleted');window.location='food_basket.php'</script>";
+
+}
+if(isset($_POST['order']))
+{
+  echo "<script>window.location='booking.php'</script>";
+}
+?>

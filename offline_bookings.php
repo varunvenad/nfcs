@@ -1,14 +1,23 @@
 <?php
 include 'header.php';
+if(isset($_GET['cat']))
+{
+  $cat=$_GET['cat'];
+}
+else
+{
+  $cat="";
+}
 ?>
 
 
 <?php
 $con=mysqli_connect('localhost','root','','project');
-if(isset($_GET['cid']))
+if(isset($_GET['cat']))
 {
-  $sql="SELECT * FROM add_food_item WHERE category_id=$_GET[cid]";
+  $sql="SELECT * FROM add_food_item WHERE category_id=$_GET[cat]";
   $exe=mysqli_query($con,$sql);
+  
 }
 ?>
 
@@ -70,7 +79,7 @@ $result=mysqli_query($con,$sql);
                       <label class="form-label" for="exampleInputEmail2">Food Items</label>
                       
                       <?php
-                      if(isset($_GET['cid']))
+                      if(isset($_GET['cat']))
                       {
 
                         while($row=mysqli_fetch_assoc($exe))
@@ -85,6 +94,7 @@ $result=mysqli_query($con,$sql);
                      
                     </div>
                     </div>
+                    <input type="hidden" value="<?php echo $_GET['id'];?>" id="val">
                     <input class="btn btn-primary"  name="addoffline" type="submit">
                   </form>
                 </div>
@@ -101,20 +111,22 @@ if(isset($_POST['addoffline']))
     {
       $pkgitems=$pkgitems.",".$i;
     }
-    $sql="INSERT into food_basket VALUES(0,$_GET[id],'$pkgitems')";
+    $sql="INSERT into food_basket VALUES(0,$_GET[id],'$pkgitems','paid')";
     $result=mysqli_query($con,$sql); 
+    //echo $sql;
     $id=mysqli_insert_id($con);
     $bkadd=$_POST['bk_address'];
     $estgst=$_POST['est_guest'];
     $bkgdate=$_POST['bkdate'];
     $bkddate=date('Y-m-d');
     $sql2="INSERT into booking_details values(0,$_GET[id],$id,'$bkadd','$bkgdate',$estgst,'$bkddate','normal','pending')";
-    $result2=mysqli_query($con,$sql2);
+    $result=mysqli_query($con,$sql2);
     //echo $sql2; 
-}
-if($result2)
+
+if($result)
 {
-  echo "<script>window.alert('Offline booking added to basket');</script>";
+ echo "<script>window.alert('Offline booking added to basket');</script>";
+}
 }
 ?>
 
@@ -122,14 +134,10 @@ if($result2)
   function typeSelected()
   {
     var select=document.getElementById('cat').value;
-    var items=document.getElementById('').value;
-    if()
-    {
-
-    }
-    else{
-        
-    }
+    var id=document.getElementById('val').value;
+    window.location="offline_bookings.php?id="+id+"&cat="+select+"";
+    
+    
   }
 </script>
 

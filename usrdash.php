@@ -70,7 +70,7 @@
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="user_profile.php">View Profile</a></li>
           <li><a class="nav-link scrollto" href="view_items.php">View item</a></li>
-          <li><a class="nav-link scrollto" href="#gallery">Food Basket</a></li>
+          <li><a class="nav-link scrollto" href="food_basket.php">Food Basket</a></li>
           <li><a class="nav-link scrollto" href="#gallery">view booked details</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Give/View feedbacks</a></li>
           <li class="dropdown"><a href="#"><span>Packages and Offers</span> <i class="bi bi-chevron-down"></i></a>
@@ -825,7 +825,7 @@
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>nfcs@gmail.com</p>
               </div>
 
               <div class="phone">

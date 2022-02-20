@@ -84,7 +84,7 @@ $colnum=3;
             <?php echo "<b> Price :</b>"; ?> 
             <?php echo $row['offr_price'] ?>
             <br>
-            <?php echo "<b> Min Quantity :</b>"; ?> 
+            <?php echo "<b> Min Quantity(in kg/litre) :</b>"; ?> 
             <?php echo $row['min_quantity'] ?>
             <br>
             <?php echo "<b> Valid From :</b>"; ?> 

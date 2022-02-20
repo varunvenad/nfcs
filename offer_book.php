@@ -4,9 +4,10 @@ include 'usrheader.php'
 
 <?php
 $con=mysqli_connect('localhost','root','','project');
-$sql="SELECT * FROM add_offers";
+$sql="SELECT * FROM add_offers where offer_id=$_GET[id]";
+$offrpr=0;
 $result=mysqli_query($con,$sql);
-echo "$sql";
+//echo "$sql";
 ?>
 
 
@@ -25,25 +26,38 @@ echo "$sql";
 
                     <div class="mb-3">
                       <label class="form-label" for="exampleInputPassword1" style="color:black;">Quantity</label>
-                      <input class="form-control" id="exampleInputPassword1" name="est_guest" type="number" required>
+                      <input class="form-control" id="qty" onfocusout="calc()" name="qty" type="number" required>
                     </div>
 
                     <div class="mb-3">
                       <label class="form-label" for="exampleInputEmail1" style="color:black;">Booking Date</label>
                       <input class="form-control" id="exampleInputEmail1"  name="bkdate" type="date" min="<?php echo date('Y-m-d');?>" required>
                       <div class="mb-3">
-                      <label class="form-label" for="exampleInputEmail2" style="color:black;">Food Items</label>
+                      <!--<label class="form-label" for="exampleInputEmail2" style="color:black;">Food Items</label>-->
                       
                       <?php
                         while($row=mysqli_fetch_assoc($result))
                         {
-                          echo "<script>window.alert('".mysqli_num_rows($result)."');</script>";
-                      ?>
+                          $offrpr=$row['offr_price'];
+                     // ?>
                       <br>
-                        <?php echo $row['offer_item_name'];?><br></option>
+                        <?php //echo $row['offer_item_name'];?><br></option>
                         <?php
                         }
                         ?>
+                        </p>
+
+<br>
+<br>
+<h6 style="color:black;" id="total">
+<script>
+function calc()
+{
+  var e=document.getElementById('total').innerHTML="Total="+document.getElementById('qty').value*<?php echo $offrpr ?>;
+}
+</script>
+
+</h6>
                      
                     </div>
                     </div>
@@ -62,16 +76,17 @@ if(isset($_POST['book']))
     $uid=$_SESSION['login_id'];
     $id=mysqli_insert_id($con);
     $bkadd=$_POST['bk_address'];
-    $estgst=$_POST['est_guest'];
+    $qty=$_POST['qty'];
     $bkgdate=$_POST['bkdate'];
     $bkddate=date('Y-m-d');
-    $sql2="INSERT into booking_details values(0,$uid,$_GET[id],'$bkadd','$bkgdate',$estgst,'$bkddate','offer','pending')";
+    $sql2="INSERT into booking_details values(0,$uid,$_GET[id],'$bkadd','$bkgdate',$qty,'$bkddate','offer','pending')";
     $result=mysqli_query($con,$sql2);
-    echo $sql2; 
-}
-if($result)
-{
-  echo "<script>window.alert('booking added to basket');</script>";
+   // echo $sql2; 
 
+  if($result)
+  {
+    echo "<script>window.alert('booking added to basket');</script>";
+
+  }
 }
 ?>

@@ -1,6 +1,7 @@
 <?php
 include 'header.php';
 ?>
+
 <?php
 $con=mysqli_connect('localhost','root','','project');
 $sql="SELECT * FROM category";
@@ -18,7 +19,7 @@ $result=mysqli_query($con,$sql);
                   <form action="" method="POST" enctype="multipart/form-data">
                   <div class="col-lg" style="width:300px;margin:auto;padding:10px">
                       <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
-                      <select class="form-select" id="inlineFormSelectPref" name="category_id" type="number">
+                      <select class="form-select" id="inlineFormSelectPref" name="category_id" type="text">
                         <option selected>Choose Category</option>
                         <?php
                         while($row=mysqli_fetch_assoc($result))

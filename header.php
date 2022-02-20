@@ -85,7 +85,7 @@
             </svg>Tables </a></li>-->
         <li class="sidebar-item"><a class="sidebar-link" href="#exampledropdownDropdown" data-bs-toggle="collapse"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#browser-window-1"> </use>
+              <use xlink:href="#survey-1"> </use>
             </svg>Add packages </a>
           <ul class="collapse list-unstyled " id="exampledropdownDropdown">
             <li><a class="sidebar-link" href="add_packages.php">Add packages</a></li>
@@ -95,32 +95,28 @@
         </li>
         <li class="sidebar-item"><a class="sidebar-link" href="add_offers.php"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#disable-1"> </use>
+              <use xlink:href="#survey-1"> </use>
             </svg>Add Offers </a></li>
         <li class="sidebar-item"><a class="sidebar-link" href="add_user.php"> 
             <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
-              <use xlink:href="#imac-screen-1"> </use>
+              <use xlink:href="#survey-1"> </use>
             </svg>Add offline bookings
             <!--<div class="badge bg-warning">6 New</div>--></a></li>
       </ul><span class="text-uppercase text-gray-500 text-sm fw-bold letter-spacing-0 mx-lg-2 heading">Second menu</span>
       <ul class="list-unstyled py-4">
         <li class="sidebar-item"> <a class="sidebar-link" href="#!"> 
             <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
-              <use xlink:href="#chart-1"> </use>
-            </svg>Demo</a></li>
+              <use xlink:href="#imac-screen-1"> </use>
+            </svg>View/Manage Booked Details</a></li>
         <li class="sidebar-item"> <a class="sidebar-link" href="">
             <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
               <use xlink:href="#imac-screen-1"> </use>
-            </svg>Demo
-            <div class="badge bg-info">Special</div></a></li>
-        <li class="sidebar-item"> <a class="sidebar-link" href=""> 
-            <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
-              <use xlink:href="#quality-1"> </use>
-            </svg>Demo</a></li>
+            </svg>View/Respond Feedback
+            
         <li class="sidebar-item"> <a class="sidebar-link" href=""> 
             <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
               <use xlink:href="#security-shield-1"> </use>
-            </svg>Demo</a></li>
+            </svg>View Reports</a></li>
       </ul>
     </nav>
     <div class="page">

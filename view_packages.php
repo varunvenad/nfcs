@@ -5,6 +5,11 @@ include 'usrheader.php'
 <?php
 $con=mysqli_connect('localhost','root','','project');
 $sql="SELECT * FROM add_packages";
+$result3=mysqli_query($con,$sql);
+?>
+<?php
+$con=mysqli_connect('localhost','root','','project');
+$sql="SELECT * FROM add_packages";
 $result=mysqli_query($con,$sql);
 //$value=mysqli_fetch_assoc($result)
 $colnum=3;
@@ -52,13 +57,15 @@ $colnum=3;
 <?php
       $i=0;
       $rc=0;
-      while ($i<$trws) {
+      while ($i<=$trws) {
         $j=0;
     ?>
       <tr>
         <?php 
-        while ($j<$colnum) {
-          $row=mysqli_fetch_assoc($result);
+        $p=0;
+        while ( $row=mysqli_fetch_assoc($result)) {
+        $p++;
+       
           // $res=$row['image'];
           ?>
           
@@ -79,7 +86,26 @@ $colnum=3;
             <?php echo $row['pkg_desc'] ?>
             <br>
             <?php echo "<b> Package Items :</b>"; ?> 
-            <?php echo $row['food_list'] ?>
+            <?php 
+            $fname="";
+                      
+                    
+                       //$pkgp=$row['pkg_price'];
+          
+                       $tmp=EXPLODE(',',$row['food_list']);
+                       $fname="";
+                       $foodItemsID=array_slice($tmp,1,count($tmp));
+                      foreach($foodItemsID as $i)
+                      {  
+     
+                      $sql2="SELECT * FROM add_food_item where food_item_id=$i";
+  $results=mysqli_query($con,$sql2);
+  $tmpp=mysqli_fetch_assoc($results);
+  $fname=$fname."<br>".$tmpp['food_name'];
+ 
+      }
+    
+    echo $fname; ?>
             <br>
             <?php echo "<b> Price :</b>"; ?> 
             <?php echo $row['pkg_price'] ?>
@@ -106,7 +132,12 @@ $colnum=3;
         ?>
       </tr>
       <br>
+      
     <?php
+     if($p%3==0)
+     {
+       echo "<br>";
+     }
       }
     ?>
 
