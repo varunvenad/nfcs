@@ -117,11 +117,20 @@ $offprice=$_POST['off_price'];
 $offqty=$_POST['off_qty'];
 $vldfrm=$_POST['valid_frm'];
 $vldto=$_POST['valid_to'];
+$sql1="SELECT * from add_offers where offer_item_name='$offfood'";
+$exe=mysqli_query($con,$sql1);
+$dup=mysqli_num_rows($exe);
+if($dup>0)
+{
+  echo "<script>window.alert('Already exists');</script>";
+  exit;
+}
+else
+{
 $sql="INSERT INTO add_offers VALUES (0,'$offfood','$offdesc','$offprice','$offqty','$vldfrm','$vldto')";
 $result=mysqli_query($con,$sql);
-if($result)
-{
 echo "<script>alert('Offer Added');window.location='add_offers.php'</script>";
+exit;
 }
 }
 ?>

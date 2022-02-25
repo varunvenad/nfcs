@@ -88,10 +88,10 @@ $colnum=3;
             <?php echo $row['min_quantity'] ?>
             <br>
             <?php echo "<b> Valid From :</b>"; ?> 
-            <?php echo $row['valid_from'] ?>
+            <?php echo date('d-m-y',strtotime($row['valid_from'])) ?>
             <br>
             <?php echo "<b> Valid To :</b>"; ?> 
-            <?php echo $row['valid_to'] ?>
+            <?php echo date('d-m-y',strtotime($row['valid_to'])) ?>
             <br>
             <br>
             <a href="offer_book.php?id=<?php echo $row['offer_id']?>" >Book</a>

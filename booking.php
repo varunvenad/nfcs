@@ -8,7 +8,7 @@ $con=mysqli_connect('localhost','root','','project');
 $sql="SELECT * FROM food_basket";
 $result=mysqli_query($con,$sql);
 $value=mysqli_fetch_assoc($result);
-echo "$sql";
+
 ?>
 
 
@@ -65,11 +65,13 @@ if(isset($_POST['book']))
     $uid=$_SESSION['login_id'];
     $bkadd=$_POST['bk_address'];
     $estgst=$_POST['est_guest'];
+    $t=$estgst*$_SESSION['sum'];
     $bkgdate=$_POST['bkdate'];
     $bkddate=date('Y-m-d');
-    $sql2="INSERT into booking_details values(0,$uid,$_SESSION[basketid],'$bkadd','$bkgdate',$estgst,'$bkddate','basket','pending')";
+    $sql2="INSERT into booking_details values(0,$uid,$_SESSION[basketid],'$bkadd','$bkgdate',$estgst,'$bkddate','basket','pending',$t)";
+    
     $result=mysqli_query($con,$sql2);
-    echo $sql2; 
+     
 if($result)
 {
   echo "<script>window.alert('Booked');</script>";

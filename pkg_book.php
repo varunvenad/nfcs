@@ -96,11 +96,12 @@ if(isset($_POST['book']))
     $id=mysqli_insert_id($con);
     $bkadd=$_POST['bk_address'];
     $estgst=$_POST['est_guest'];
+    $total=$estgst*$pkgp;
     $bkgdate=$_POST['bkdate'];
     $bkddate=date('Y-m-d');
-    $sql2="INSERT into booking_details values(0,$uid,$_GET[id],'$bkadd','$bkgdate',$estgst,'$bkddate','package','pending')";
+    $sql2="INSERT into booking_details values(0,$uid,$_GET[id],'$bkadd','$bkgdate',$estgst,'$bkddate','package','pending',$total)";
     $result=mysqli_query($con,$sql2);
-    echo $sql2; 
+    //echo $sql2; 
 
     if($result)
     {

@@ -104,16 +104,16 @@
             <!--<div class="badge bg-warning">6 New</div>--></a></li>
       </ul><span class="text-uppercase text-gray-500 text-sm fw-bold letter-spacing-0 mx-lg-2 heading">Second menu</span>
       <ul class="list-unstyled py-4">
-        <li class="sidebar-item"> <a class="sidebar-link" href="#!"> 
+        <li class="sidebar-item"> <a class="sidebar-link" href="admin_bkdetails.php"> 
             <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
               <use xlink:href="#imac-screen-1"> </use>
             </svg>View/Manage Booked Details</a></li>
-        <li class="sidebar-item"> <a class="sidebar-link" href="">
+        <li class="sidebar-item"> <a class="sidebar-link" href="admin_feedback.php">
             <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
               <use xlink:href="#imac-screen-1"> </use>
             </svg>View/Respond Feedback
             
-        <li class="sidebar-item"> <a class="sidebar-link" href=""> 
+        <li class="sidebar-item"> <a class="sidebar-link" href="report.php"> 
             <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2">
               <use xlink:href="#security-shield-1"> </use>
             </svg>View Reports</a></li>

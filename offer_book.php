@@ -77,15 +77,17 @@ if(isset($_POST['book']))
     $id=mysqli_insert_id($con);
     $bkadd=$_POST['bk_address'];
     $qty=$_POST['qty'];
+    $t= $qty*$offrpr;
     $bkgdate=$_POST['bkdate'];
     $bkddate=date('Y-m-d');
-    $sql2="INSERT into booking_details values(0,$uid,$_GET[id],'$bkadd','$bkgdate',$qty,'$bkddate','offer','pending')";
+    $sql2="INSERT into booking_details values(0,$uid,$_GET[id],'$bkadd','$bkgdate',$qty,'$bkddate','offer','pending',$t)";
+    
     $result=mysqli_query($con,$sql2);
-   // echo $sql2; 
+    //echo $sql2; 
 
   if($result)
   {
-    echo "<script>window.alert('booking added to basket');</script>";
+   echo "<script>window.alert('booking added to basket');</script>";
 
   }
 }

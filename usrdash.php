@@ -71,8 +71,8 @@
           <li><a class="nav-link scrollto" href="user_profile.php">View Profile</a></li>
           <li><a class="nav-link scrollto" href="view_items.php">View item</a></li>
           <li><a class="nav-link scrollto" href="food_basket.php">Food Basket</a></li>
-          <li><a class="nav-link scrollto" href="#gallery">view booked details</a></li>
-          <li><a class="nav-link scrollto" href="#gallery">Give/View feedbacks</a></li>
+          <li><a class="nav-link scrollto" href="user_bkdetails.php">View booked details</a></li>
+          <li><a class="nav-link scrollto" href="user_feedback.php">Give/View feedbacks</a></li>
           <li class="dropdown"><a href="#"><span>Packages and Offers</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="view_packages.php">View/Take Packages</a></li>

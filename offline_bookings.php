@@ -86,7 +86,7 @@ $result=mysqli_query($con,$sql);
                         {
                       ?>
                       <br>
-                        <input type="checkbox" name="pkgitems[]" value="<?php echo $row['food_item_id'];?>"><?php echo $row['food_name'];?><br></option>
+                        <input type="checkbox" name="pkgitems[]" value="<?php echo $row['food_item_id'];?>-<?php echo $row['price'];?>"><?php echo $row['food_name'];?><br></option>
                         <?php
                         }
                       }
@@ -107,9 +107,13 @@ if(isset($_POST['addoffline']))
     $con=mysqli_connect('localhost','root','','project');
     //$fdid=$_POST['food_item_id'];
     $pkgitems="";
+    $ar=array();
+    $total=0;
     foreach($_POST['pkgitems'] as $i)
     {
-      $pkgitems=$pkgitems.",".$i;
+     $ar=EXPLODE('-',$i);
+    $pkgitems=$pkgitems.",".$ar[0];
+    $total=$total+$ar[1];
     }
     $sql="INSERT into food_basket VALUES(0,$_GET[id],'$pkgitems','paid')";
     $result=mysqli_query($con,$sql); 
@@ -118,8 +122,9 @@ if(isset($_POST['addoffline']))
     $bkadd=$_POST['bk_address'];
     $estgst=$_POST['est_guest'];
     $bkgdate=$_POST['bkdate'];
+    $total=$total*$estgst;
     $bkddate=date('Y-m-d');
-    $sql2="INSERT into booking_details values(0,$_GET[id],$id,'$bkadd','$bkgdate',$estgst,'$bkddate','normal','pending')";
+    $sql2="INSERT into booking_details values(0,$_GET[id],$id,'$bkadd','$bkgdate',$estgst,'$bkddate','normal','pending',$total)";
     $result=mysqli_query($con,$sql2);
     //echo $sql2; 
 

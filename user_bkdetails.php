@@ -5,7 +5,7 @@ include 'usrheader.php'
 
 <?php
 $con=mysqli_connect('localhost','root','','project');
-$sql="SELECT * FROM booking_details where u_id=$_SESSION[login_id] and booking_status='confirmed'";
+$sql="SELECT * FROM booking_details where u_id=$_SESSION[login_id]";
 $result=mysqli_query($con,$sql);
 ?>
 
@@ -38,9 +38,9 @@ $result=mysqli_query($con,$sql);
                           <th scope="row"><?php echo $row['booking_id'];?></th>
                           <td><?php echo $row['u_id'];?></td>
                           <td><?php echo $row['address'];?></td>
-                          <td><?php echo $row['date'];?></td>
+                          <td><?php echo date('d-m-y',strtotime($row['date']));?></td>
                           <td><?php echo $row['estimated_guest'];?></td>
-                          <td><?php echo $row['booked_date'];?></td>
+                          <td><?php echo date('d-m-y',strtotime($row['booked_date']));?></td>
                           <td><?php echo $row['booked_type'];?></td>
                           <td><?php echo $row['booking_status'];?><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a><a href="?cancelid=<?php echo $row['booking_id'];?>"><?php echo $row['booking_status']=='cancelled'?'':'Cancel';?></a></td>
                           

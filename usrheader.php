@@ -49,7 +49,7 @@ session_start();
     <div class="container d-flex justify-content-center justify-content-md-between">
 
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-phone d-flex align-items-center"><span>+1 5589 55488 55</span></i>
+        <i class="bi bi-phone d-flex align-items-center"><span></span></i>
         <!--<i class="bi bi-clock d-flex align-items-center ms-4"><span> Mon-Sat: 11AM - 23PM</span></i>-->
       </div>
 
@@ -77,8 +77,8 @@ session_start();
           <li><a class="nav-link scrollto" href="user_profile.php">View Profile</a></li>
           <li><a class="nav-link scrollto" href="view_items.php">View item</a></li>
           <li><a class="nav-link scrollto" href="food_basket.php">Food Basket</a></li>
-          <li><a class="nav-link scrollto" href="#gallery">view booked details</a></li>
-          <li><a class="nav-link scrollto" href="#gallery">Give/View feedbacks</a></li>
+          <li><a class="nav-link scrollto" href="user_bkdetails.php">view booked details</a></li>
+          <li><a class="nav-link scrollto" href="user_feedback.php">Give/View feedbacks</a></li>
           <li class="dropdown"><a href="#"><span>Packages and Offers</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="view_packages.php">View/Take Packages</a></li>
